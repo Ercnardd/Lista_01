@@ -1,8 +1,6 @@
 package com.exercicio;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -41,8 +39,7 @@ public class atualizar_Produto {
         System.out.println();
     }
 
-    public static void main(String[] args) {
-        String arquivoCSV = "produtos.csv";
+    public static void main(String[] args) throws Exception {
         List<Produto> produtos = new ArrayList<>();
 
         CSVReader leitor = new CSVReader();
@@ -58,6 +55,7 @@ public class atualizar_Produto {
 
         leitor.close();
 
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         System.out.print("Digite o nome do produto que deseja atualizar: ");
         String nomeProduto = scanner.nextLine();
@@ -71,7 +69,7 @@ public class atualizar_Produto {
             }
         }
 
-        CSVWriter escritor = new CSVWriter();
+        CSVWriter escritor = new CSVWriter(null);
         for (Produto produto : produtos) {
             String[] dados = {produto.getNome(), String.valueOf(produto.getPreco()), String.valueOf(produto.getQuantidade())};
             escritor.writeNext(dados);

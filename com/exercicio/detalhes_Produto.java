@@ -1,7 +1,7 @@
-package com.exercicio;
 
-import java.io.FileReader;
-import java.io.IOException;
+
+
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,11 +38,8 @@ public class detalhes_Produto {
         System.out.println();
     }
 
-    public static void main(String[] args) {
+    public static <CSVReader> void main(String[] args) throws Exception {
       
-        String arquivoCSV = "produtos.csv";
-
-
         List<detalhes_Produto> produtos = new ArrayList<>();
 
         CSVReader leitor = new CSVReader();
@@ -58,7 +55,7 @@ public class detalhes_Produto {
         }
 
          
-        leitor.close();
+        ((PrintStream) leitor).close();
 
 
         for (detalhes_Produto produto : produtos) {

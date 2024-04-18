@@ -1,11 +1,7 @@
 package com.exercicio;
-import java.io.FileReader;
-import java.io.IOException;
 
 public class LerCSV {
-    public static void main(String[] args) {
-        String arquivoCSV = "alunos.csv";
-
+    public static void main(String[] args) throws Exception {
         CSVReader leitor = new CSVReader();
         String[] linha;
 

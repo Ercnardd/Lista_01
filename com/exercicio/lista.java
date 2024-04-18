@@ -54,6 +54,7 @@ class Produto implements Serializable {
 
 public class lista {
 
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         List<Produto> listaProdutos = Arrays.asList(
                 new Produto("Celular", 1000.00, 0),
